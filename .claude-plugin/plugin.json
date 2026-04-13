@@ -1,0 +1,27 @@
+{
+  "name": "virgil",
+  "version": "1.0.0",
+  "description": "The AI co-founder operating system. Spec first. Build right. Ship fast. Combines the best of Everything Claude Code, Superpowers, and Get Shit Done.",
+  "author": {
+    "name": "Adrian Bond",
+    "url": "https://github.com/adrianbond"
+  },
+  "homepage": "https://github.com/adrianbond/virgil",
+  "repository": "https://github.com/adrianbond/virgil",
+  "license": "MIT",
+  "keywords": [
+    "claude-code",
+    "agents",
+    "skills",
+    "hooks",
+    "rules",
+    "tdd",
+    "spec-driven",
+    "context-engineering",
+    "founder",
+    "vibe-coding"
+  ],
+  "agents": "agents/",
+  "skills": "skills/",
+  "commands": "commands/"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "virgil",
+  "version": "1.0.0",
+  "description": "The AI co-founder operating system. Spec first. Build right. Ship fast.",
+  "author": "Adrian Bond",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianbond/virgil.git"
+  },
+  "scripts": {
+    "install:full": "bash install.sh --profile full",
+    "install:typescript": "bash install.sh typescript",
+    "verify": "npm run build && npx tsc --noEmit && npx eslint . --ext .ts,.tsx && npm test",
+    "test:hooks": "node tests/hooks.test.js"
+  },
+  "keywords": [
+    "claude-code",
+    "ai-agents",
+    "spec-driven",
+    "tdd",
+    "context-engineering",
+    "vibe-coding",
+    "founder-tools"
+  ],
+  "files": [
+    "agents/",
+    "skills/",
+    "commands/",
+    "hooks/",
+    "rules/",
+    "scripts/",
+    "mcp-configs/",
+    "CLAUDE.md",
+    "AGENTS.md",
+    "install.sh"
+  ]
+}
