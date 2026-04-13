@@ -30,20 +30,25 @@ When the user describes what they want to build:
 3. Present the spec in digestible chunks for review.
 4. Get explicit approval before proceeding.
 
-### Phase 2: Planning (from ECC)
+### Phase 2: Planning (from Superpowers + ECC)
 After spec approval:
-1. Break the work into discrete, testable tasks.
-2. Each task should be completable by a focused subagent.
-3. Order tasks by dependency — foundations first.
-4. Identify which agent handles each task (planner, tdd-guide, architect, etc.).
+1. Use `/write-plan` to create a structured implementation plan (Superpowers writing-plans skill).
+2. Break the work into discrete, testable tasks.
+3. Each task should be completable by a focused subagent.
+4. Order tasks by dependency — foundations first.
+5. Use `/brainstorm` for requirements gathering when scope is unclear.
+6. Identify which agent handles each task (planner, tdd-guide, architect, etc.).
 
 ### Phase 3: Execution (from Superpowers + GSD)
 For each task:
-1. Write failing tests first (TDD).
-2. Implement minimal code to pass tests (GREEN).
-3. Refactor for quality (IMPROVE).
-4. Run verification loop: build, lint, typecheck, test, security check.
-5. Compact context at logical breakpoints between tasks.
+1. Use `/execute-plan` to run the plan through Superpowers subagent-driven-development.
+2. Write failing tests first (TDD) — use test-driven-development skill.
+3. Implement minimal code to pass tests (GREEN).
+4. Refactor for quality (IMPROVE).
+5. Run verification-before-completion checks.
+6. Run verification loop: build, lint, typecheck, test, security check.
+7. Compact context at logical breakpoints between tasks.
+8. Use dispatching-parallel-agents skill when tasks are independent.
 
 ### Phase 4: Review
 After implementation:

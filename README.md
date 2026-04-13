@@ -72,7 +72,7 @@ Install the recommended extensions (VS Code will prompt you), then start Claude 
 virgil/
 ├── CLAUDE.md              # The soul — core principles, workflow, context management
 ├── AGENTS.md              # Cross-platform agent manifest
-├── agents/                # 11 specialized subagents
+├── agents/                # 48 specialized subagents
 │   ├── planner.md             # Implementation planning
 │   ├── architect.md           # System design decisions
 │   ├── tdd-guide.md           # Test-driven development
@@ -80,12 +80,38 @@ virgil/
 │   ├── security-reviewer.md   # Vulnerability analysis
 │   ├── build-error-resolver.md # Fix broken builds
 │   ├── loop-operator.md       # Autonomous execution loops
-│   └── ...
-├── skills/                # 12 workflow skills
+│   ├── typescript-reviewer.md # TS/JS review (ECC)
+│   ├── python-reviewer.md     # Python review (ECC)
+│   ├── go-reviewer.md         # Go review (ECC)
+│   ├── database-reviewer.md   # Database/Supabase review (ECC)
+│   ├── e2e-runner.md          # Playwright E2E tests (ECC)
+│   ├── chief-of-staff.md      # Communication triage (ECC)
+│   ├── gsd-executor.md        # Plan execution (GSD)
+│   ├── gsd-planner.md         # Phase planning (GSD)
+│   ├── gsd-verifier.md        # Goal verification (GSD)
+│   └── ... (31 more GSD agents)
+├── skills/                # 36 workflow skills
+│   ├── writing-plans/         # Spec-driven plan authoring (Superpowers)
+│   ├── executing-plans/       # Autonomous plan execution (Superpowers)
+│   ├── subagent-driven-development/ # Subagent orchestration (Superpowers)
+│   ├── test-driven-development/   # TDD enforcement (Superpowers)
+│   ├── systematic-debugging/  # Debug methodology (Superpowers)
+│   ├── brainstorming/         # Requirements gathering (Superpowers)
+│   ├── dispatching-parallel-agents/ # Parallel agent dispatch (Superpowers)
+│   ├── verification-before-completion/ # Pre-completion checks (Superpowers)
 │   ├── tdd-workflow/          # RED → GREEN → REFACTOR
 │   ├── verification-loop/     # Build + typecheck + lint + test + security
-│   ├── context-engineering/   # Anti-context-rot system (from GSD)
-│   ├── spec-driven-dev/       # Spec before code (from Superpowers)
+│   ├── context-engineering/   # Anti-context-rot system (GSD)
+│   ├── continuous-learning-v2/ # Instinct-based learning (ECC)
+│   ├── eval-harness/          # Formal evaluation framework (ECC)
+│   ├── coding-standards/      # Universal coding standards (ECC)
+│   ├── api-design/            # REST API patterns (ECC)
+│   ├── e2e-testing/           # Playwright patterns (ECC)
+│   ├── deployment-patterns/   # CI/CD workflows (ECC)
+│   ├── docker-patterns/       # Docker + Compose (ECC)
+│   ├── database-migrations/   # Migration best practices (ECC)
+│   ├── cost-aware-llm-pipeline/ # LLM cost optimization (ECC)
+│   ├── spec-driven-dev/       # Spec before code
 │   ├── strategic-compact/     # Smart compaction timing
 │   ├── search-first/          # Research before coding
 │   ├── security-review/       # Security checklist
@@ -94,16 +120,31 @@ virgil/
 │   ├── supabase-patterns/     # Deep Supabase patterns
 │   ├── n8n-automation/        # n8n workflow patterns
 │   └── founder-ops/           # Investor updates, outreach, GTM
-├── commands/              # Slash commands
+├── commands/              # 82 slash commands (9 core + 73 GSD)
 │   ├── plan.md                # /plan — create implementation plan
+│   ├── write-plan.md          # /write-plan — Superpowers plan writing
+│   ├── execute-plan.md        # /execute-plan — Superpowers plan execution
+│   ├── brainstorm.md          # /brainstorm — Superpowers brainstorming
 │   ├── tdd.md                 # /tdd — enforce TDD
 │   ├── code-review.md         # /code-review — quality review
 │   ├── build-fix.md           # /build-fix — fix build errors
 │   ├── security-scan.md       # /security-scan — security audit
-│   └── verify.md              # /verify — full verification loop
+│   ├── verify.md              # /verify — full verification loop
+│   └── gsd/                   # 73 GSD commands (autonomous, debug, ship, etc.)
+├── get-shit-done/         # GSD core context engineering system
+│   ├── workflows/             # Phase execution workflows
+│   ├── contexts/              # Dynamic context injection
+│   ├── templates/             # Phase/milestone templates
+│   ├── references/            # Reference materials
+│   └── bin/                   # GSD CLI utilities
 ├── hooks/                 # Event-driven automation
-│   └── hooks.json             # PreToolUse, PostToolUse, SessionStart, Stop
-├── scripts/hooks/         # Hook implementations (Node.js)
+│   ├── hooks.json             # Core hooks
+│   ├── superpowers/           # Superpowers hooks (4 files)
+│   └── gsd/                   # GSD hooks (9 files)
+├── sdk/                   # GSD SDK (TypeScript)
+├── scripts/
+│   ├── hooks/                 # Hook implementations (Node.js)
+│   └── lib/                   # ECC script library (22 modules)
 │   ├── pre-bash.js            # Block dev servers outside tmux, warn on destructive cmds
 │   ├── pre-write.js           # Block 800+ line files, warn on console.log
 │   ├── post-edit.js           # Warn on TODO/console.log/ts-ignore additions
