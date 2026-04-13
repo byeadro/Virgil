@@ -20,6 +20,36 @@
           }
         ],
         "description": "Block files over 800 lines, warn on non-standard file creation"
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/gsd-prompt-guard.js"
+          }
+        ],
+        "description": "Scan .planning/ writes for prompt injection patterns (advisory)"
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/gsd-read-guard.js"
+          }
+        ],
+        "description": "Remind to read files before writing (prevents non-Claude model loops)"
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/hooks/gsd-validate-commit.sh"
+          }
+        ],
+        "description": "Enforce conventional commits format on git commit commands"
       }
     ],
     "PostToolUse": [
@@ -32,6 +62,26 @@
           }
         ],
         "description": "Auto-typecheck after edits, warn on console.log and TODO additions"
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/gsd-context-monitor.js"
+          }
+        ],
+        "description": "Monitor context window usage, warn at 35% remaining, critical at 25%"
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/hooks/gsd-phase-boundary.sh"
+          }
+        ],
+        "description": "Detect .planning/ file writes and remind to update STATE.md"
       }
     ],
     "Stop": [
@@ -55,7 +105,28 @@
             "command": "node scripts/hooks/session-start.js"
           }
         ],
-        "description": "Load working context and previous session state"
+        "description": "Load working context, previous session state, and GSD project state"
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash scripts/hooks/gsd-session-state.sh"
+          }
+        ],
+        "description": "Inject GSD project state reminder from .planning/STATE.md"
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/gsd-check-update.js",
+            "async": true
+          }
+        ],
+        "description": "Check for GSD updates in background"
       }
     ]
   }
