@@ -1,0 +1,62 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/pre-bash.js"
+          }
+        ],
+        "description": "Block dev servers outside tmux, warn on destructive commands"
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/pre-write.js"
+          }
+        ],
+        "description": "Block files over 800 lines, warn on non-standard file creation"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/post-edit.js"
+          }
+        ],
+        "description": "Auto-typecheck after edits, warn on console.log and TODO additions"
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/session-end.js"
+          }
+        ],
+        "description": "Save session state and extract patterns on session end"
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/hooks/session-start.js"
+          }
+        ],
+        "description": "Load working context and previous session state"
+      }
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Virgil: Verify All",
+      "type": "shell",
+      "command": "npm run build && npx tsc --noEmit && npx eslint . --ext .ts,.tsx && npm test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": ["$tsc", "$eslint-stylish"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Virgil: Build",
+      "type": "shell",
+      "command": "npm run build",
+      "group": "build",
+      "problemMatcher": "$tsc"
+    },
+    {
+      "label": "Virgil: Type Check",
+      "type": "shell",
+      "command": "npx tsc --noEmit",
+      "problemMatcher": "$tsc"
+    },
+    {
+      "label": "Virgil: Lint",
+      "type": "shell",
+      "command": "npx eslint . --ext .ts,.tsx,.js,.jsx",
+      "problemMatcher": "$eslint-stylish"
+    },
+    {
+      "label": "Virgil: Test",
+      "type": "shell",
+      "command": "npm test",
+      "group": "test"
+    },
+    {
+      "label": "Virgil: Test Coverage",
+      "type": "shell",
+      "command": "npm test -- --coverage"
+    },
+    {
+      "label": "Virgil: Security Audit",
+      "type": "shell",
+      "command": "npm audit --production && grep -rn 'sk_\\|pk_\\|ghp_\\|AKIA\\|password\\s*=' --include='*.ts' --include='*.tsx' --include='*.env*' . || true"
+    },
+    {
+      "label": "Virgil: Supabase Types",
+      "type": "shell",
+      "command": "npx supabase gen types typescript --local > lib/supabase/database.types.ts"
+    },
+    {
+      "label": "Virgil: Dev Server (tmux)",
+      "type": "shell",
+      "command": "tmux new-session -d -s dev 'npm run dev' && echo 'Dev server started in tmux session: dev. Attach with: tmux attach -t dev'"
+    }
+  ]
+}

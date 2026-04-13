@@ -1,0 +1,16 @@
+node_modules/
+.next/
+dist/
+out/
+.env
+.env.local
+.env.production
+.env.staging
+.DS_Store
+Thumbs.db
+*.log
+.virgil/
+.idea/
+*.swp
+*.swo
+coverage/
